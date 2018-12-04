@@ -1,13 +1,18 @@
+// Set the day number to the day of the month for the associated problem
+var dayNumber;
+
+if (dayNumber === undefined) {
+	console.warn('Must set problem day number.');
+	return;
+}
+
 var fr = require('./fileReader.js');
-var input = fr.readLines('./input.txt');
+var input = fr.readLines(`./inputs/${dayNumber}.txt`);
+var day = require(`./days/${dayNumber}.js`);
 
-function partOne(input) {
-	return 'one-done';
-}
+var output1 = day.partOne(input);
+var output2 = day.partTwo(input);
 
-function partTwo(input) {
-	return 'two-done';
-}
-
-console.log(partOne(input));
-// console.log(partTwo(input));
+console.log(`---- Day ${dayNumber} ----`);
+console.log(`Part 1: ${output1}`);
+console.log(`Part 2: ${output2}`);
