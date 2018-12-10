@@ -19,4 +19,8 @@ if (dayNumber === undefined) {
     return;
 }
 
+if (dayNumber < 10) {
+	dayNumber = '0' + dayNumber;
+}
+
 runForDay(dayNumber);
