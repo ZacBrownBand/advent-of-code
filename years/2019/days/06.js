@@ -33,6 +33,7 @@ const partOne = (input) => {
 
   return tottal;
 };
+
 const partTwo = (input) => {
   const san = planetsByName.SAN;
   const you = planetsByName.YOU;
