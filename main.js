@@ -1,14 +1,18 @@
 const fR = require('./fileReader.js');
 
 // Set the day number to the day of the month for the associated problem
-const dayNumber = 1;
+const dayNumber = 2 ;
 const year = 2020;
 
 const runForDay = day => {
   const input = fR.readLines(`./years/${year}/inputs/${day}.txt`);
-  const { partOne, partTwo } = require(`./years/${year}/days/${day}.js`);
+  const { partOne, partTwo, beforeAll, beforeEach } = require(`./years/${year}/days/${day}.js`);
+
+  beforeAll && beforeAll(input);
+  beforeEach && beforeEach(input);
 
   const partOneOutput = partOne(input);
+  beforeEach && beforeEach(input);
   const partTwoOutput = partTwo(input);
 
   console.log(`---- Day ${dayNumber} ${year} ----`);
