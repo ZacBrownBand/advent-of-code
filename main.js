@@ -1,7 +1,7 @@
 const fR = require('./fileReader.js');
 
 // Set the day number to the day of the month for the associated problem
-const dayNumber = 2 ;
+const dayNumber = 3 ;
 const year = 2020;
 
 const runForDay = day => {
