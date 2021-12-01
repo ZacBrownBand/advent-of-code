@@ -1,13 +1,9 @@
-const isTree = (input, row, col) => {
-	return input[row][col] === '#';
-};
-
 const checkSlope = (input, right, down) => {
 	let trees = 0;
 	let col = 0;
 	const cols = input[0].length;
 	for (var row = 0, rows = input.length; row < rows; row += down) {
-		if (isTree(input, row, col)) {
+		if (input[row][col] === '#') {
 			trees++;
 		}
 		col = (col + right) % cols;
