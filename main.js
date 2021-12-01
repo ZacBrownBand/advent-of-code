@@ -1,26 +1,31 @@
-var fr = require('./fileReader.js');
-function runForDay(day) {
-    var input = fr.readLines(`./inputs/${dayNumber}.txt`);
-    var day = require(`./days/${dayNumber}.js`);
-
-    var output1 = day.partOne(input);
-    var output2 = day.partTwo(input);
-
-    console.log(`---- Day ${dayNumber} ----`);
-    console.log(`Part 1: ${output1}`);
-    console.log(`Part 2: ${output2}`);
-}
+const fR = require("./fileReader.js");
 
 // Set the day number to the day of the month for the associated problem
-var dayNumber = 1;
 
-if (dayNumber === undefined) {
-    console.warn('Must set problem day number.');
-    return;
-}
+const dayNumber = 1;
+const year = 2021;
 
-if (dayNumber < 10) {
-	dayNumber = '0' + dayNumber;
-}
+const runForDay = (day) => {
+  const input = fR.readLines(`./years/${year}/inputs/${day}.txt`);
+  const {
+    partOne,
+    partTwo,
+    beforeAll,
+    beforeEach,
+  } = require(`./years/${year}/days/${day}.js`);
 
-runForDay(dayNumber);
+  beforeAll && beforeAll(input);
+  beforeEach && beforeEach(input);
+
+  const partOneOutput = partOne(input);
+  beforeEach && beforeEach(input);
+  const partTwoOutput = partTwo(input);
+
+  console.log(`---- Day ${dayNumber} ${year} ----`);
+  console.log(`Part 1: ${partOneOutput}`);
+  console.log(`Part 2: ${partTwoOutput}`);
+};
+
+const dayNumberAdjusted = dayNumber < 10 ? "0" + dayNumber : dayNumber;
+
+runForDay(dayNumberAdjusted);
