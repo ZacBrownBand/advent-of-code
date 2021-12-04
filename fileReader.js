@@ -1,6 +1,8 @@
-const fs = require('fs');
+const fs = require("fs");
 
-const read = (filename) => fs.readFileSync(filename, 'utf8');
-const readLines = (filename) => read(filename).split(/\r?\n/);
+const linesFromRead = (data) => data.split(/\r?\n/);
 
-module.exports = { read, readLines };
+const read = (filename) => fs.readFileSync(filename, "utf8");
+const readLines = (filename) => linesFromRead(read(filename));
+
+module.exports = { read, readLines, linesFromRead };
