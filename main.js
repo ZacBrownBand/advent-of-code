@@ -1,4 +1,5 @@
 const fR = require("./fileReader.js");
+const prototypeFunctions = require("./prototypeFunctions.js");
 
 // Set the day number to the day of the month for the associated problem
 
@@ -20,6 +21,8 @@ const runForDay = (day) => {
   const input = parseInput(
     fR.read(`./years/${year}/inputs/${day}${testing ? ".test" : ""}.txt`)
   );
+
+  prototypeFunctions.addPrototypeFunctions();
 
   beforeAll && beforeAll(input);
   beforeEach && beforeEach(input);
