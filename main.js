@@ -3,7 +3,7 @@ const prototypeFunctions = require("./prototypeFunctions.js");
 
 // Set the day number to the day of the month for the associated problem
 
-const dayNumber = 11;
+const dayNumber = 12;
 const year = 2021;
 
 const runForDay = (day) => {
@@ -30,9 +30,11 @@ const runForDay = (day) => {
   beforeEach && beforeEach(input);
   const partTwoOutput = runPartTwo ? partTwo(input) : "Skipped";
 
+  console.log("\n");
   console.log(`---- Day ${dayNumber} ${year} ----`);
   console.log(`Part 1: ${partOneOutput}`);
   console.log(`Part 2: ${partTwoOutput}`);
+  console.log("\n");
 };
 
 const dayNumberAdjusted = dayNumber < 10 ? "0" + dayNumber : dayNumber;
