@@ -25,21 +25,56 @@ const partOne = (input) => {
   });
   return count;
 };
-const permutations = getPermutations();
-const solve = ([left, right]) => {
-  // 0000
-  // 1  2
-  // 1  2
-  // 3333
-  // 4  5
-  // 4  5
-  // 6666
 
-  return;
+const numbers = [
+  "1110111", // 0
+  "0010010", // 1
+  "1011101", // 2
+  "1011011", // 3
+  "0111010", // 4
+  "1101011", // 5
+  "1101111", // 6
+  "1010010", // 7
+  "1111111", // 8
+  "1111011", // 9
+];
+
+const isValid = (orientation, reader) => {
+  const litParts = orientation
+    .split("")
+    .map((l) => (reader.indexOf(l) > -1 ? 1 : 0))
+    .join("");
+
+  return numbers.indexOf(litParts) > -1;
+};
+
+const getNumber = (orientation, reader) => {
+  const litParts = orientation
+    .split("")
+    .map((l) => (reader.indexOf(l) > -1 ? 1 : 0))
+    .join("");
+
+  return numbers.indexOf(litParts);
+};
+
+const permutations = getPermutations();
+const solve = (line) => {
+  const left = line[0];
+  const right = line[1];
+
+  const correctPerm = permutations.find((perm) => {
+    return left.every((input) => {
+      return isValid(perm.toLowerCase(), input);
+    });
+  });
+
+  return Number(
+    right.map((val) => getNumber(correctPerm.toLowerCase(), val)).join("")
+  );
 };
 
 const partTwo = (input) => {
-  return input.map(solve)._sum();
+  return input.map((line) => solve(line))._sum();
 };
 
 module.exports = {
@@ -54,7 +89,7 @@ module.exports = {
   partTwo,
   testing: false,
   runPartOne: true,
-  runPartTwo: false,
+  runPartTwo: true,
 };
 
 function getPermutations() {
