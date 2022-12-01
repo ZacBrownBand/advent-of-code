@@ -4,7 +4,7 @@ const prototypeFunctions = require("./prototypeFunctions.js");
 // Set the day number to the day of the month for the associated problem
 
 const dayNumber = 01;
-const year = 2021;
+const year = 2022;
 
 const runForDay = (day) => {
   // Explanation and examples of all exports in template/days/01.js
