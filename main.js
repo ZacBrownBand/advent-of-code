@@ -31,7 +31,7 @@ const runForDay = (day) => {
   const partTwoOutput = runPartTwo ? partTwo(input) : "Skipped";
 
   console.log("\n");
-  console.log(`---- Day ${dayNumber} ${year} ----`);
+  console.log(`---- Day ${dayNumber} ${year}----`);
   console.log(`Part 1: ${partOneOutput}`);
   console.log(`Part 2: ${partTwoOutput}`);
   console.log("\n");
