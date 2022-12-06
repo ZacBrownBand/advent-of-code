@@ -1,22 +1,25 @@
-const parseInput = (input) => {
-  return input.split('\n');
+const partOne = (chars) => {
+  for (let i = 0; i < chars.length - 4; i++) {
+    const set = new Set(chars.substring(i, i + 4));
+    if (set.size === 4) {
+      return i + 4;
+    }
+  }
 };
 
-const partOne = (lines) => {
-  return 0;
-};
-
-const partTwo = (lines) => {
-  return 0;
+const partTwo = (chars) => {
+  for (let i = 0; i < chars.length - 14; i++) {
+    const set = new Set(chars.substring(i, i + 14));
+    if (set.size === 14) {
+    return i + 14;
+    }
+  }
 };
 
 module.exports = {
-  // beforeAll, // optional - function to run before the solutions are run
-  // beforeEach, // optional - function to run before each solution
-  parseInput,
   partOne,
   partTwo,
-  testing: true,
+  testing: false,
   runPartOne: true,
   runPartTwo: true,
 };
