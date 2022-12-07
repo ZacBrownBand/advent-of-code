@@ -3,7 +3,7 @@ const prototypeFunctions = require("./prototypeFunctions.js");
 
 // Set the day number to the day of the month for the associated problem
 
-const dayNumber = 06;
+const dayNumber = 07;
 const year = 2022;
 
 const runForDay = (day) => {
@@ -18,11 +18,11 @@ const runForDay = (day) => {
     runPartOne = true,
     runPartTwo = true,
   } = require(`./years/${year}/days/${day}.js`);
+  prototypeFunctions.addPrototypeFunctions();
+  
   const input = parseInput(
     fR.read(`./years/${year}/inputs/${day}${testing ? ".test" : ""}.txt`)
   );
-
-  prototypeFunctions.addPrototypeFunctions();
 
   beforeAll && beforeAll(input);
   beforeEach && beforeEach(input);
@@ -40,3 +40,4 @@ const runForDay = (day) => {
 const dayNumberAdjusted = dayNumber < 10 ? "0" + dayNumber : dayNumber;
 
 runForDay(dayNumberAdjusted);
+
